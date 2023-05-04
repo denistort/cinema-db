@@ -16,6 +16,7 @@
 		"lint:eslint-fix": "eslint --fix \"src/**/*.{js,ts,tsx,jsx}\" --config .eslintrc.cjs",
 		"test:editorconfig": "editorconfig-checker --exclude \"/.git|.husky|node_modules/g\"",
 		"lint:styles": "stylelint \"**/*.{scss,css}\"",
+		"lint:styles-fix": "stylelint --fix \"**/*.{scss,css}\"",
 		"prepare": "husky install",
 		"lint-staged": "lint-staged"
 	},
