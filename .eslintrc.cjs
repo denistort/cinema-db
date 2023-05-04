@@ -16,6 +16,7 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended-requiring-type-checking',
 		'plugin:prettier/recommended',
 		'plugin:import/recommended',
+		'prettier',
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -40,9 +41,8 @@ module.exports = {
 		},
 	},
 	rules: {
-		'no-tabs': 'off',
-		semi: ['error', 'always'],
+		semi: 'error',
 		quotes: ['error', 'single'],
-		'no-console': 'error',
+		'no-console': ['error', { allow: ['error'] }],
 	},
 };
