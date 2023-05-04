@@ -26,7 +26,7 @@ jobs:
       - name: editorconfig checks
         run: yarn test:editorconfig
       - name: stylelint
-        run: stylelint **/*.{scss,css}
+        run: yarn lint:styles
       - name: unit tests react testing library
         run: yarn vitest run
       - name: build step
