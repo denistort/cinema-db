@@ -12,6 +12,7 @@
 		"lint:prettier-fix": "yarn lint:prettier --write .",
 		"lint:eslint-fix": "eslint --fix src/**/*.{js,ts,tsx,jsx} --config .eslintrc.cjs",
 		"test:editorconfig": "editorconfig-checker --exclude '.git|.husky|node_modules'",
+		"lint:styles": "stylelint \"**/*.{scss,css}\"",
 		"prepare": "husky install",
 		"lint-staged": "lint-staged"
 	},
@@ -20,6 +21,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
+		"stylelint-config-standard-scss": "^9.0.0",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"@typescript-eslint/eslint-plugin": "^5.59.2",
@@ -41,13 +43,5 @@
 		"prettier": "^2.8.8",
 		"typescript": "^5.0.4",
 		"vite": "^4.3.2"
-	},
-	"lint-staged": {
-		"*.{js, jsx, ts, tsx, md, html}": [
-			"yarn test:editorconfig",
-			"yarn lint:prettier-fix",
-			"yarn lint:eslint-fix",
-			"git add -A ."
-		]
 	}
 }

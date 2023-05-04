@@ -1,0 +1,9 @@
+{
+	"*.{js, jsx, ts, tsx, md, html}": [
+		"yarn test:editorconfig",
+		"yarn lint:prettier-fix",
+		"yarn lint:eslint-fix",
+		"git add -A ."
+	],
+	"*.{css,scss}": ["yarn lint:styles"]
+}
