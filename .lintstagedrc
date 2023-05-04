@@ -3,6 +3,7 @@
 		"yarn lint:prettier-fix",
 		"yarn lint:eslint-fix",
 		"yarn test:editorconfig",
+		"yarn test:run",
 		"git add -A ."
 	],
 	"*.{css,scss}": ["yarn lint:styles"]

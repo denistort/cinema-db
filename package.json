@@ -6,19 +6,25 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
+		"test:watch": "vitest",
+		"test:run": "vitest run",
+		"coverage": "vitest run --coverage",
 		"preview": "vite preview",
 		"lint:eslint": "eslint \"src/**/*.{js,ts,tsx,jsx}\" --config .eslintrc.cjs",
 		"lint:prettier": "prettier --check \"src/**/*.{js,ts,tsx,jsx}\"",
 		"lint:prettier-fix": "yarn lint:prettier --write .",
-		"lint:eslint-fix": "tsc --noEmit && eslint --fix \"src/**/*.{js,ts,tsx,jsx}\" --config .eslintrc.cjs",
+		"lint:eslint-fix": "eslint --fix \"src/**/*.{js,ts,tsx,jsx}\" --config .eslintrc.cjs",
 		"test:editorconfig": "editorconfig-checker --exclude \"/.git|.husky|node_modules/g\"",
 		"lint:styles": "stylelint \"**/*.{scss,css}\"",
 		"prepare": "husky install",
 		"lint-staged": "lint-staged"
 	},
 	"dependencies": {
+		"@testing-library/react": "^14.0.0",
+		"happy-dom": "^9.10.8",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"vitest": "^0.31.0"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.28",
