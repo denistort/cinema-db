@@ -31,6 +31,7 @@ jobs:
         run: yarn build
   deploy:
     name: deploy to aws s-3 and cloudfront
+    environment: Development
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
