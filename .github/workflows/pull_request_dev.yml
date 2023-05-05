@@ -53,8 +53,5 @@ jobs:
           bucket-region: ${{ vars.AWS_BUCKET_REGION }}
           dist-id: ${{ secrets.AWS_CLOUDFRONT_DEVELOPMENT_ID }}
           invalidation: /
-          delete-removed: true
-          no-cache: true
-          private: true
-          files-to-include: ".*/*,*/*,**"
+          files-to-include: '.*/*,*/*,**'
 
