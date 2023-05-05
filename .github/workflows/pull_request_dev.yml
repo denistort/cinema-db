@@ -32,9 +32,6 @@ jobs:
   deploy:
     name: deploy to aws s-3 and cloudfront
     environment: Development
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,11 +42,15 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy
-        uses: reggionick/s3-deploy@v3
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          folder: build
-          bucket: ${{ vars.AWS_DEV_BUCKET_NAME }}
-          bucket-region: ${{ vars.AWS_BUCKET_REGION }}
-          dist-id: ${{ secrets.AWS_CLOUDFRONT_DEVELOPMENT_ID }}
-
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_BUCKET_REGION }}
+      - name: Build React App
+        run: yarn && yarn build
+      - name: Deploy app build to S3 bucket
+        run: aws s3 sync ./dist/ s3://cinemadb-branch-development --delete
